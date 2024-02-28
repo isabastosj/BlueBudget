@@ -16,7 +16,7 @@ let package = Package(
         .iOSApplication(
             name: "BlueBudget",
             targets: ["AppModule"],
-            bundleIdentifier: "Isabela.MangoList",
+            bundleIdentifier: "Isabela.BlueBudget",
             teamIdentifier: "7U9T24457T",
             displayVersion: "1.0",
             bundleVersion: "1",
@@ -31,7 +31,8 @@ let package = Package(
                 .landscapeRight,
                 .landscapeLeft,
                 .portraitUpsideDown(.when(deviceFamilies: [.pad]))
-            ]
+            ],
+            appCategory: .productivity
         )
     ],
     targets: [
