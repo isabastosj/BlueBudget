@@ -14,7 +14,7 @@ struct ListEditor: View {
     
     @State var oldName = " "
     
-    @Binding var darkMode: Bool
+//    @Binding var darkMode: Bool
     @Binding var sound: Bool
     
     var totalPrice: Double {
@@ -174,7 +174,7 @@ struct ListEditor: View {
             .sheet(isPresented: $isEditingList) {
                 NavigationStack {
                     
-                    NewListView(list: $list, darkMode: $darkMode)
+                    NewListView(list: $list) // , darkMode: $darkMode
                         .navigationTitle("Editing list")
                         .navigationBarTitleDisplayMode(.inline)
                         .toolbar {
@@ -242,6 +242,6 @@ struct ListEditor: View {
 
 struct ListEditor_Previews: PreviewProvider {
     static var previews: some View {
-        ListEditor(list: .constant(Listing()), isNew: true, darkMode: .constant(false), sound: .constant(true))
+        ListEditor(list: .constant(Listing()), isNew: true,  sound: .constant(true)) // darkMode: .constant(false),
     }
 }

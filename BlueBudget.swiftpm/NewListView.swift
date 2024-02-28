@@ -15,7 +15,7 @@ struct NewListView: View {
     @Environment(\.dismiss) private var dismiss
 //    @FocusState var focusedItem: Item?
     @State private var isPickingSymbol = false
-    @Binding var darkMode: Bool
+//    @Binding var darkMode: Bool
     
     var body: some View {
         Form {
@@ -30,10 +30,10 @@ struct NewListView: View {
         .padding(.horizontal, 16)
         .scrollContentBackground(.hidden)
         .background(Color("ListingColor2"))
-        .environment(\.colorScheme, darkMode ? .dark : .light)
+//        .environment(\.colorScheme, darkMode ? .dark : .light)
     }
 }
 
 #Preview {
-    NewListView(list: .constant(Listing()), isNew: true, darkMode: .constant(false))
+    NewListView(list: .constant(Listing()), isNew: true) //, darkMode: .constant(false)
 }

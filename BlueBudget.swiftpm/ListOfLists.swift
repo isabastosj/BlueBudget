@@ -13,7 +13,7 @@ struct ListOfLists: View {
     
     @Environment(\.colorScheme) var colorScheme
     
-    @Binding var darkMode: Bool
+//    @Binding var darkMode: Bool
     @Binding var sound: Bool
     
     @State private var howmany: Int = 0
@@ -161,7 +161,7 @@ struct ListOfLists: View {
                     }
                     .sheet(isPresented: $isAddingNewList) {
                         NavigationStack {
-                            NewListView(list: $newList, isNew: true, darkMode: $darkMode)
+                            NewListView(list: $newList, isNew: true) // , darkMode: $darkMode
                                 .navigationTitle("New list")
                                 .navigationBarTitleDisplayMode(.inline)
                                 .toolbar {
@@ -191,7 +191,7 @@ struct ListOfLists: View {
                     }
                     .sheet(isPresented: $isEditingSettings) {
                         NavigationStack {
-                            SettingsView(sound: $sound, darkMode: $darkMode, showOnboarding: $showOnboarding)
+                            SettingsView(sound: $sound, showOnboarding: $showOnboarding) // , darkMode: $darkMode
                                 .navigationTitle("Settings")
                                 .navigationBarTitleDisplayMode(.inline)
                                 .toolbar {
@@ -220,7 +220,7 @@ struct ListOfLists: View {
             } detail: {
                 ZStack {
                     if let list = selection, let listBinding = listsRepository.getBindingToList(list) {
-                        ListEditor(list: listBinding, darkMode: $darkMode, sound: $sound)
+                        ListEditor(list: listBinding, sound: $sound) //, darkMode: $darkMode
                     }
                     else {
 
@@ -298,6 +298,6 @@ struct ListOfLists: View {
     
     struct ListOfLists_Previews: PreviewProvider {
         static var previews: some View {
-            ListOfLists(listsRepository: ListingRepository(), darkMode: .constant(false), sound: .constant(true))
+            ListOfLists(listsRepository: ListingRepository(),  sound: .constant(true)) //darkMode: .constant(false),
         }
     }
