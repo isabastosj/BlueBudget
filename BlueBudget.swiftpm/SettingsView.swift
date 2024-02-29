@@ -10,37 +10,37 @@ import SwiftUI
 struct SettingsView: View {
     
     @Binding var sound: Bool
-//    @Binding var darkMode: Bool
+    //    @Binding var darkMode: Bool
     @Binding var showOnboarding: Bool
     
     var body: some View {
         VStack {
             List {
                 
-//                Section("Appearance", content: {
-//                    Toggle(isOn: $darkMode) {
-//                        HStack {
-//                            Image(systemName: "sun.max.fill")
-//                                .font(.callout)
-//                                .padding(6)
-//                                .foregroundColor(Color("ListingColor2"))
-//                                .fontWeight(.medium)
-//                                .background {
-//                                    RoundedRectangle(cornerRadius: 8)
-//                                        .fill(Color("Blue2"))
-//                                        .frame(width: 30, height: 30)
-//                                }
-//                                
-//                            
-//                            Text("Dark Mode")
-//                                .fontWeight(.medium)
-//                                .padding(.leading, 10)
-//                        }
-//                    }
-//                    .toggleStyle(SwitchToggleStyle(tint: Color("Blue1")))
-//                    .frame(height: 38)
-//                })
-//                .listRowBackground(Color("ListingColor1"))
+                //                Section("Appearance", content: {
+                //                    Toggle(isOn: $darkMode) {
+                //                        HStack {
+                //                            Image(systemName: "sun.max.fill")
+                //                                .font(.callout)
+                //                                .padding(6)
+                //                                .foregroundColor(Color("ListingColor2"))
+                //                                .fontWeight(.medium)
+                //                                .background {
+                //                                    RoundedRectangle(cornerRadius: 8)
+                //                                        .fill(Color("Blue2"))
+                //                                        .frame(width: 30, height: 30)
+                //                                }
+                //
+                //
+                //                            Text("Dark Mode")
+                //                                .fontWeight(.medium)
+                //                                .padding(.leading, 10)
+                //                        }
+                //                    }
+                //                    .toggleStyle(SwitchToggleStyle(tint: Color("Blue1")))
+                //                    .frame(height: 38)
+                //                })
+                //                .listRowBackground(Color("ListingColor1"))
                 
                 Section("Sound", content: {
                     Toggle(isOn: $sound) {
@@ -94,12 +94,14 @@ struct SettingsView: View {
             .padding(.horizontal, 24)
             .padding(.vertical)
             
-            Text("For the best experience, use this app on landscape!")
-                .foregroundStyle(.secondary)
-                .padding(.bottom, 32)
+            if UIDevice.current.userInterfaceIdiom == .pad {
+                Text("For the best experience, use this app on landscape!")
+                    .foregroundStyle(.secondary)
+                    .padding(.bottom, 32)
+            }
         }
         .background(Color("ListingColor2"))
-//        .environment(\.colorScheme, darkMode ? .dark : .light)
+        //        .environment(\.colorScheme, darkMode ? .dark : .light)
         
     }
 }

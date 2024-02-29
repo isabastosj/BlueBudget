@@ -41,7 +41,7 @@ struct OnboardingView1: View {
     var body: some View {
         VStack {
             
-            Text("Stay organized")
+            Text("Stay Organized")
                 .font(.largeTitle)
                 .foregroundStyle(Color("Blue3"))
                 .bold()
